@@ -1,0 +1,54 @@
+/* 
+File: main.css
+Course: MAD-9022
+Student: Marcos Zorzi Rosa
+Project: PLAYR
+Date: Feb 02 2019 */
+
+@import url('https://fonts.googleapis.com/css?family=Gruppo');
+
+* {
+    padding: 0;
+}
+html{
+    background-color: #3F4447;
+    color: rgb(240, 240, 240);
+    font-family: 'Gruppo', Arial, Helvetica, sans-serif;
+}
+.music-list {
+    /* width: 600px; */
+    width: 100%; 
+    max-width: 100%;
+    margin: 1rem auto;
+    border: 1px solid black;
+}
+
+.music-item {
+    display: grid;
+    grid-template-areas: "a b" "a c";
+    grid-template-columns: 1fr 2fr;
+    /* border-bottom: 1px solid #999; */
+    border: 1px solid gray;
+    border-radius: 15px;
+    border-style: outset;
+    margin-bottom: 15px;
+}
+
+.music-img {
+    width: 100%; 
+    max-width: 100%;
+    height: auto;
+    background-color: #bada55;
+    grid-area: a;
+    border-radius: 15px;
+}
+
+.music-artist {
+    grid-area: b;
+    padding: 1rem;
+}
+
+.music-title {
+    grid-area: c;
+    padding: 1rem;
+}

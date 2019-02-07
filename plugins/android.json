@@ -9,7 +9,14 @@
   "installed_plugins": {
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "ca.edumedia.zorz0004.playr"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "ca.edumedia.zorz0004.playr"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "ca.edumedia.zorz0004.playr"
+    }
+  }
 }
