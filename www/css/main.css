@@ -21,6 +21,8 @@ html{
     max-width: 100%;
     margin: 1rem auto;
     border: 1px solid black;
+    position: absolute;
+    padding-bottom: 25%;
 }
 
 .music-item {
@@ -51,4 +53,22 @@ html{
 .music-title {
     grid-area: c;
     padding: 1rem;
+}
+
+.controls{
+    display: block;
+    background-color: #0B0C0C;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+}
+
+nav > p,
+nav > button{
+    color: white;
+    font-size: 1rem;
+    position: relative;
+    align-content: center;
 }

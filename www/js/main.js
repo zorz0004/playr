@@ -9,6 +9,7 @@ Date: Feb 02 2019 */
 const zorz0004 = {
     pages: [],
     musics: [],
+    files: [],
     show: new Event("show"),
     init: function() {
         zorz0004.pages = document.querySelectorAll(".page");
@@ -16,12 +17,14 @@ const zorz0004 = {
         
         zorz0004.musics.forEach((ms) =>{
             ms.addEventListener("click", zorz0004.player);
-        });     
+        });  
+        
     },
 
 player: function(){
     console.log("click");
     let music = "file:///android_asset/www/media/evidencias.mp3";
+    let mediaStatus = 0;
     console.log(music);
     // Audio player 
     //let my_media = new Media(music, zorz0004.ftw, zorz0004.wtf); 
@@ -30,8 +33,28 @@ player: function(){
     },
     function(ev){
         console.log("Error: "+ ev);
+    }, function(status){
+        mediaStatus = status;
     });
     media.play();
+
+    document.querySelector(".playpause").addEventListener("click", function (){
+        /* Media.MEDIA_NONE = 0;
+           Media.MEDIA_STARTING = 1;
+           Media.MEDIA_RUNNING = 2;
+           Media.MEDIA_PAUSED = 3;
+           Media.MEDIA_STOPPED = 4;
+        */
+        if(mediaStatus === 2 || mediaStatus === 1){
+            media.pause();
+        } else if(mediaStatus === 3 || mediaStatus === 4){
+            media.play();
+        } else{
+            alert("Select a song first.");
+        }
+    });
+
+    
 
     // mediaTimer = setInterval(function () {
     //     // get media amplitude
@@ -49,7 +72,7 @@ player: function(){
 },
 
 ftw: function(my_media){
-    my_media.play();
+    media.play();
     console.log("Success: my_media.play");
 },
 
