@@ -4,8 +4,8 @@
     <description>
         Music player using Cordova Media.
     </description>
-    <author email="zorz0004@algonquincollege.com" href="http://cordova.io">
-        MAD-9022
+    <author email="zorz0004@algonquincollege.com" href="https://github.com/zorz0004/playr">
+        Algonquin College
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
