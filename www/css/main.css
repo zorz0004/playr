@@ -267,3 +267,17 @@ nav > button{
       /* transform: rotate(90deg); */
   }
 
+   .playing{
+    animation-name: spin;
+    animation-duration: 8000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+
+  @keyframes spin { 
+    from { 
+        transform: rotateY(0deg); 
+    } to { 
+        transform: rotateY(360deg); 
+    }
+} 

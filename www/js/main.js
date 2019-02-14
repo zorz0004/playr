@@ -27,7 +27,7 @@ const zorz0004 = {
     },
     {
         id: 2,
-        artist: "Cassia Eller feat Nando Reis",
+        artist: "Cassia Eller (feat. Nando Reis)",
         title: "Relicário",
         file: "file:///android_asset/www/media/relicario.mp3",
         image: "file:///android_asset/www/img/cassia-eller.jpg",
@@ -39,6 +39,22 @@ const zorz0004 = {
         title: "Outras Freqüências",
         file: "file:///android_asset/www/media/outras-frequencias.mp3",
         image: "file:///android_asset/www/img/engenheiros.jpg",
+        volume: 0.5
+    },
+    {
+        id: 4,
+        artist: "Kid Abelha",
+        title: "Fixação",
+        file: "file:///android_asset/www/media/fixacao.mp3",
+        image: "file:///android_asset/www/img/kid-abelha.jpg",
+        volume: 0.5
+    },
+    {
+        id: 5,
+        artist: "Ira! (feat. Samuel Rosa)",
+        title: "Tarde Vazia",
+        file: "file:///android_asset/www/media/tarde-vazia.mp3",
+        image: "file:///android_asset/www/img/ira.jpg",
         volume: 0.5
     }
 ],
@@ -73,6 +89,15 @@ player: function(el){
         document.getElementById("controlmenu").classList.remove("hide");
         document.getElementById("controlmenu").classList.add("show");
     }
+
+
+    //Apply spin on image element
+    document.querySelectorAll(".playing").forEach(item =>{
+        item.classList.remove("playing");
+    });
+    document.getElementById(this.id).querySelector(".music-img").classList.add("playing");
+
+
 
     document.getElementById("musicRange").value = "0";
 
@@ -125,21 +150,6 @@ player: function(el){
         document.querySelector('.end').innerHTML =  (Math.floor((dur % 3600) / 60)) +":"+(Math.floor(dur % 60));
     }
     }, 100);
-
-    // let mediaTimer = setInterval(function () {
-    //     // get media amplitude
-    //     zorz0004.media.getCurrentAmplitude(
-    //         // success callback
-    //         function (amp) {
-    //             console.log(amp + "%");
-    //             document.getElementById("musicRange").stepUp(amp);
-    //         },
-    //         // error callback
-    //         function (e) {
-    //             console.log("Error getting amp=" + e);
-    //         }
-    //     );
-    // }, 1000);
 
 
     // Update media position every second
@@ -256,6 +266,11 @@ stop: function(){
         document.getElementById("controlmenu").classList.remove("show");
         document.getElementById("controlmenu").classList.add("hide");
     }
+
+    //Remove playing animation
+    document.querySelectorAll(".playing").forEach(item =>{
+        item.classList.remove("playing");
+    });
 },
 
 
@@ -289,9 +304,6 @@ next: function(){
     //Play next song
    // if(zorz0004.mediaStatus === 4){
         let actid = zorz0004.actual;
-        // console.log("actual: " + zorz0004.actual);
-        // console.log("actid: " + actid);
-        // console.log(zorz0004.tracks[actid+1]);
         let el = {id: 0,
             artist: "",
             title: "",
@@ -299,7 +311,7 @@ next: function(){
             image: "",
             volume: 0};
 
-        if (actid >= 3){
+        if (actid >= 5){
             // console.log(" if ");
             el = zorz0004.tracks[0];
         }else{
