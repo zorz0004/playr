@@ -15,12 +15,57 @@ html{
     color: rgb(240, 240, 240);
     font-family: 'Gruppo', Arial, Helvetica, sans-serif;
 }
+
+.hide{
+    transform: scaleX(1) scaleY(1);
+    transform-origin: bottom 100px;
+    animation-direction: alternate;
+    animation-duration: 0.5s;
+    animation-name: animatehide;
+
+    display: none;
+    position: absolute; 
+    top: -9999px; 
+    left: -9999px; 
+}
+
+.show{
+      display: block; 
+      position: fixed;
+    /* transition: opacity 2s linear; 
+    transform:translate(0);
+    opacity: 1; */
+    transform: scaleX(1) scaleY(1);
+    transform-origin: bottom -100px;
+    animation-direction: alternate;
+    animation-duration: 0.5s;
+    animation-name: animate;
+}
+
+@keyframes animate{
+    0%{
+        transform: translateY(200px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+@keyframes animatehide{
+    0%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(200px);
+    }
+}
+
 .music-list {
     /* width: 600px; */
-    width: 100%; 
+    width: 96%; 
     max-width: 100%;
     margin: 1rem auto;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     position: absolute;
     padding-bottom: 25%;
 }
@@ -34,6 +79,7 @@ html{
     border-radius: 15px;
     border-style: outset;
     margin-bottom: 15px;
+    height: auto;
 }
 
 .music-img {
@@ -43,22 +89,23 @@ html{
     background-color: #bada55;
     grid-area: a;
     border-radius: 15px;
+    /* margin-top: 1.5rem; */
 }
 
 .music-artist {
     grid-area: b;
-    padding: 1rem;
+    padding-left: 1rem;
 }
 
 .music-title {
     grid-area: c;
-    padding: 1rem;
+    padding-left: 1rem;
 }
 
 .controls{
-    display: block;
+    /* display: block; */
     background-color: #0B0C0C;
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     left: 0;
     right: 0;
@@ -72,3 +119,151 @@ nav > button{
     position: relative;
     align-content: center;
 }
+
+
+
+
+.controls{
+    display: grid;
+    /* grid-template-areas: "up up up up up"
+                         "tstart tstart tstart tstart tend"
+                         "vol bk pp ff stop"; */
+    grid-template-areas: "up up up up up"
+                         "vol bk pp ff stop";
+     grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
+     grid-gap: 10px;
+     /* padding: 10px;  */
+}
+
+
+.slidecontainer {
+    max-width: 90%; /* Width of the outside container */ 
+    grid-area: up;
+
+    /* margin-left: 13%; */
+    /* margin-right: 10%; */
+
+    display: grid;
+    grid-template-areas: "top top top top top"
+                         "left none none none right";
+    margin-left: 10%;
+  }
+  
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    max-width: 100%; /* Full-width */
+    height: 1px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    /* grid-area: up; */
+    grid-area: top;
+    margin-top: 10px;
+    /* margin-left: 7%;
+    margin-right: 7%; */
+  }
+
+  .slidecontainer > .start{
+      /* grid-area: tstart;
+    border: 2px solid white; */
+    grid-area: left;
+  }
+
+  .slidecontainer > .end{
+      /* grid-area: tend;*/
+      grid-area: right;
+  }
+
+  /* .slidecontainer > .start,
+  .slidecontainer > .end{
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+  } */
+
+  .controls > section{
+      padding: 2px 0;
+  }
+
+  .rewButton{
+      grid-area: bk;
+  }
+
+  .ppButton{
+      grid-area: pp;
+  }
+
+  .ffButton{
+      grid-area: ff;
+  }
+
+  .spButton{
+      grid-area: stop;
+  }
+
+  .spButton > input,
+  .ffButton > input,
+  .rewButton > input,
+  .ppButton > input{
+      width: 25px;
+      height: 25px;
+  }
+
+
+  .volume{
+      grid-area: vol;
+
+      /* display: grid;
+      grid-template-areas: "plus minus"
+                           "voltext voltext";
+    margin: 0;
+    padding-top: 0; */
+    display: flex;
+    flex-direction: row;
+    margin-left: 25%;
+  }
+
+  /* .volume {
+    width: 50px;
+    height: 2px;
+    margin: 0;
+    margin-top: 10px;
+    transform-origin: 75px 75px;
+     transform: rotate(-90deg);
+  } */
+
+  /* .volume > input{
+      grid-area: bar;
+  } */
+
+  .volume > .plus,
+  .volume > .minus{
+      font-size: 1.2rem;
+      width: 25px;
+      height: 25px;
+  }
+
+  .volume > .plus{
+      grid-area: plus;
+      /* transform: rotate(90deg); */
+  }
+
+  .volume > .minus{
+      grid-area: minus;
+      margin-left: 5%;
+      /* transform: rotate(90deg); */
+  }
+
+  .volume> .vol{
+      grid-area: voltext;
+      clear: both;
+      margin-left: -50%;
+      margin-top: 45%;
+      /* transform: rotate(90deg); */
+  }
+

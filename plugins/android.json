@@ -12,6 +12,9 @@
     },
     "cordova-plugin-media": {
       "PACKAGE_NAME": "ca.edumedia.zorz0004.playr"
+    },
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "ca.edumedia.zorz0004.playr"
     }
   },
   "dependent_plugins": {

@@ -31,23 +31,23 @@ Date: Feb 02 2019 -->
     <body>
         <section class="page" id="home">
             <ul class="music-list">
-                <li class="music-item">
+                <li class="music-item" id="0">
                     <!--Insert music ID and click event listener-->
                     <img src="#" alt="" class="music-img" />
                     <h3 class="music-artist">Artist Name</h3>
                     <h3 class="music-title">Song Title</h3>
                 </li>
-                <li class="music-item">
+                <li class="music-item" id="1">
                     <img src="#" alt="" class="music-img" />
                     <h3 class="music-artist">Artist Name</h3>
                     <h3 class="music-title">Song Title</h3>
                 </li>
-                <li class="music-item">
+                <li class="music-item" id="2">
                     <img src="#" alt="" class="music-img" />
                     <h3 class="music-artist">Artist Name</h3>
                     <h3 class="music-title">Song Title</h3>
                 </li>
-                <li class="music-item">
+                <li class="music-item" id="3">
                         <img src="#" alt="" class="music-img" />
                         <h3 class="music-artist">Artist Name</h3>
                         <h3 class="music-title">Song Title</h3>
@@ -55,10 +55,46 @@ Date: Feb 02 2019 -->
             </ul>
      
         </section>
-        <nav class="controls">
+        <nav class="controls hide" id="controlmenu">
+                <section class="slidecontainer">
+                        <input type="range" min="0" max="100" value="0" class="slider" id="musicRange">
+                        <p class="start">Start</p>
+                        <p class="end">End</p>
+                </section>
+
+            <section class="volume">
+                    <!-- <input type="range" min="0" max="100" value="50" class="volumes" id="volumeRange"> -->
+                    <!-- <p class="plus">+</p> -->
+
+                    <!-- <button class="plus" type="button">+</button> -->
+                    <input type="image" class="plus" src="./img/button-plus.png">
+
+                    <!-- <button class="minus" type="button">-</button> -->
+                    <input type="image" class="minus" src="./img/button-minus.png">
+                    <p class="vol">VOL</p>
+            </section>
+
             <section class ="ppButton">
-                <button class="playpause" type="button">Play/Pause</button>
-                <p>Text</p>
+                <!-- <button class="playpause" type="button">Play/Pause</button> -->
+                <input type="image" class="playpause" src="./img/button-playpause.png">
+                <p>Play|Pause</p>
+            </section>
+
+            <section class ="spButton">
+                <!-- <button class="stop" type="button">Stop</button> -->
+                <input type="image" class="stop" src="./img/button-stop.png">
+                <p>Stop</p>
+            </section>
+
+            <section class ="ffButton">
+                <!-- <button class="ff" type="button">FF</button> -->
+                <input type="image" class="ff" src="./img/button-ff.png">
+                <p>FF</p>
+            </section>
+            <section class ="rewButton">
+                <!-- <button class="rew" type="button">REW</button> -->
+                <input type="image" class="rew" src="./img/button-rew.png">
+                <p>REW</p>
             </section>
         </nav>
         <script type="text/javascript" src="cordova.js"></script>
