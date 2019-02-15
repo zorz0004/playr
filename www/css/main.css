@@ -125,9 +125,6 @@ nav > button{
 
 .controls{
     display: grid;
-    /* grid-template-areas: "up up up up up"
-                         "tstart tstart tstart tstart tend"
-                         "vol bk pp ff stop"; */
     grid-template-areas: "up up up up up"
                          "vol bk pp ff stop";
      grid-template-columns: 0.2fr 0.2fr 0.2fr 0.2fr 0.2fr;
