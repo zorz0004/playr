@@ -210,8 +210,9 @@ nav > button{
   .ffButton > input,
   .rewButton > input,
   .ppButton > input{
-      width: 25px;
-      height: 25px;
+      width: 40px;
+      height: 40px;
+      margin-top: -1.5rem;
   }
 
 
@@ -244,8 +245,9 @@ nav > button{
   .volume > .plus,
   .volume > .minus{
       font-size: 1.2rem;
-      width: 25px;
-      height: 25px;
+      width: 40px;
+      height: 40px;
+      margin-top: -1.5rem;
   }
 
   .volume > .plus{
@@ -263,7 +265,8 @@ nav > button{
       grid-area: voltext;
       clear: both;
       margin-left: -50%;
-      margin-top: 45%;
+      /* margin-top: 45%; */
+
       /* transform: rotate(90deg); */
   }
 

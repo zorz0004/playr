@@ -84,12 +84,18 @@ player: function(el){
         el.stopPropagation();
     }
 
+    //Hash change to force track position to the top
+    location.hash = this.id;
+
+
     //Open Control Menu
     if(document.getElementById("controlmenu").classList.contains("hide")){
         document.getElementById("controlmenu").classList.remove("hide");
         document.getElementById("controlmenu").classList.add("show");
     }
 
+    //Change play/pause button image
+    document.querySelector(".playpause").src = "file:///android_asset/www/img/button-playpause.png";
 
     //Apply spin on image element
     document.querySelectorAll(".playing").forEach(item =>{
@@ -232,8 +238,13 @@ pause: function (){
        Media.MEDIA_STOPPED = 4;
     */
     if(zorz0004.mediaStatus === 2 || zorz0004.mediaStatus === 1){
+        //Change play/pause button image
+        document.querySelector(".playpause").src = "file:///android_asset/www/img/button-play.png";
+        
         zorz0004.media.pause();
     } else if(zorz0004.mediaStatus === 3 || zorz0004.mediaStatus === 4){
+         //Change play/pause button image
+         document.querySelector(".playpause").src = "file:///android_asset/www/img/button-playpause.png";
         zorz0004.media.setVolume(zorz0004.tracks[0].volume);
         zorz0004.media.play();
     } else{
@@ -242,6 +253,33 @@ pause: function (){
 },
 
 addinfo: function(){
+    //mount elements
+    zorz0004.tracks.forEach(track => {
+    let li = document.createElement("li");
+    let img = document.createElement("img");
+    let h3 = document.createElement("h3");
+    let h32 = document.createElement("h3");
+    
+    li.setAttribute("id", track.id);
+    li.classList.add("music-item");
+
+    img.setAttribute("src", "#");
+    img.classList.add("music-img");
+    
+    h3.textContent = "Artist Name";
+    h3.classList.add("music-artist");
+    
+    h32.textContent = "Song Title";
+    h32.classList.add("music-title");
+
+    li.appendChild(img);
+    li.appendChild(h3);
+    li.appendChild(h32);
+    
+
+    document.querySelector(".music-list").appendChild(li);
+    });
+
     let item = document.querySelectorAll(".music-item");
     //console.log(item);
     item.forEach(mi => {
@@ -271,6 +309,9 @@ stop: function(){
     document.querySelectorAll(".playing").forEach(item =>{
         item.classList.remove("playing");
     });
+
+    //Change play/pause button image
+    document.querySelector(".playpause").src = "file:///android_asset/www/img/button-play.png";
 },
 
 
@@ -311,7 +352,7 @@ next: function(){
             image: "",
             volume: 0};
 
-        if (actid >= 5){
+        if (actid >= (zorz0004.tracks.length)-1){
             // console.log(" if ");
             el = zorz0004.tracks[0];
         }else{
